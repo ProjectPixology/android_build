@@ -1512,6 +1512,29 @@ else if get_stage("%(bcb_dev)s") != "3/3" then
   script.Print("Source: {}".format(source_info.fingerprint))
   script.Print("Target: {}".format(target_info.fingerprint))
 
+  androidver = target_info.GetBuildProp("ro.build.version.release")
+  pixversion = target_info.GetBuildProp("ro.pixology.version")
+  build_id = target_info.GetBuildProp("ro.build.id")
+  build_date = target_info.GetBuildProp("ro.pixology.build.date")
+  securitypatch = target_info.GetBuildProp("ro.build.version.security_patch")
+  pixdevice = target_info.GetBuildProp("ro.pixology.device")
+
+  script.Print("-------------------------------------------");
+  script.Print("-                                         -");
+  script.Print("-      █▀█ █ ▀▄▀ █▀█ █   █▀█ █▀▀ █▄█      -");
+  script.Print("-      █▀▀ █ █ █ █▄█ █▄▄ █▄█ █▄█  █  ▄    -");
+  script.Print("-                                         -");
+  script.Print("-------------------------------------------");
+  script.Print("           Welcome to pixology!            ");
+  script.Print("-------------------------------------------");
+  script.Print("                                           ");
+  script.Print("  Android Version : %s"%(androidver));
+  script.Print("  Pixology Version : %s"%(pixversion));
+  script.Print("  Build ID : %s"%(build_id));
+  script.Print("  Build Date : %s"%(build_date));
+  script.Print("  Security Patch : %s"%(securitypatch));
+  script.Print("  Device: %s"%(pixdevice));
+
   script.Print("Verifying current system...")
 
   device_specific.IncrementalOTA_VerifyBegin()
