@@ -589,12 +589,24 @@ function add_lunch_combo()
 
 function print_lunch_menu()
 {
+function print_lunch_menu()
+{
     local uname=$(uname)
     local choices=$(TARGET_BUILD_APPS= get_build_var COMMON_LUNCH_CHOICES)
+    clear
+    echo "----------------------------------------------"
+    echo "-                                            -"
+    echo "-      █▀█ █ ▀▄▀ █▀█ █░░ █▀█ █▀▀ █▄█ ░       -"
+    echo "-      █▀▀ █ █░█ █▄█ █▄▄ █▄█ █▄█ ░█░ ▄       -"
+    echo "-                                            -"
+    echo "----------------------------------------------"
+    echo 
+    echo "      Welcome to the pixology project!        "
+    echo 
+    echo "         You're building on" $uname
+    echo 
+    echo "  Pick a device below ready to be compiled!   "
     echo
-    echo "You're building on" $uname
-    echo
-    echo "Lunch menu... pick a combo:"
 
     local i=1
     local choice
@@ -615,7 +627,7 @@ function lunch()
         answer=$1
     else
         print_lunch_menu
-        echo -n "Which would you like? [aosp_arm-eng] "
+        echo -n "  Which device do you want to compile?"
         read answer
     fi
 
